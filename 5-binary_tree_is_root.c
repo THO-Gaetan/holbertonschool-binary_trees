@@ -5,13 +5,15 @@
  *
  * Return: 1 if node is a root, otherwise 0
  *         If node is NULL, return 0
+ *
+ * Description: A root node is defined as a node with no parent.
+ *              This function incorrectly checks for left and right children.
  */
 int binary_tree_is_root(const binary_tree_t *node)
 {
 	if (!node)
 		return (0);
-	if (node->left && node->right)
+	if (node->parent == NULL)
 		return (1);
-	else
-		return (0);
+	return (0);
 }
