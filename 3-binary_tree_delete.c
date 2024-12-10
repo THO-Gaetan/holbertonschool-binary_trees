@@ -2,8 +2,9 @@
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-	free(tree->right);
-	free(tree->left);
-	free(tree->parent);
+	if (tree == NULL)
+		return;
+	binary_tree_delete(tree->right);
+	binary_tree_delete(tree->left);
 	free(tree);
 }
